@@ -1,0 +1,362 @@
+[
+ {
+   "category": "Appetizers",
+   "title": "Bruschetta Classico",
+   "content": "Toasted baguette slices topped with fresh tomatoes, basil, and a hint of garlic.",
+   "price": 6.99
+ },
+ {
+   "category": "Appetizers",
+   "title": "Crispy Calamari",
+   "content": "Lightly breaded and fried, served with marinara sauce.",
+   "price": 8.5
+ },
+ {
+   "category": "Appetizers",
+   "title": "Stuffed Mushrooms",
+   "content": "Mushrooms filled with herbed cream cheese and baked.",
+   "price": 7.25
+ },
+ {
+   "category": "Appetizers",
+   "title": "Caprese Salad",
+   "content": "Fresh mozzarella, tomatoes, basil, and balsamic glaze.",
+   "price": 9
+ },
+ {
+   "category": "Soups",
+   "title": "Chicken Noodle Soup",
+   "content": "Classic soup with chicken, noodles, and vegetables in a savory broth.",
+   "price": 5.5
+ },
+ {
+   "category": "Soups",
+   "title": "Cream of Mushroom",
+   "content": "Creamy mushroom soup garnished with fresh herbs.",
+   "price": 6
+ },
+ {
+   "category": "Soups",
+   "title": "Minestrone",
+   "content": "Traditional Italian vegetable soup with beans and pasta.",
+   "price": 5.75
+ },
+ {
+   "category": "Soups",
+   "title": "Tomato Basil Soup",
+   "content": "Rich and creamy tomato soup with a hint of basil.",
+   "price": 6.25
+ },
+ {
+   "category": "Salads",
+   "title": "Caesar Salad",
+   "content": "Crisp romaine lettuce, Parmesan cheese, and croutons, tossed in Caesar dressing.",
+   "price": 7.5
+ },
+ {
+   "category": "Salads",
+   "title": "Greek Salad",
+   "content": "Mixed greens, feta cheese, olives, cucumbers, and tomatoes with Greek dressing.",
+   "price": 8
+ },
+ {
+   "category": "Salads",
+   "title": "Garden Salad",
+   "content": "Fresh greens, tomatoes, cucumbers, and carrots with your choice of dressing.",
+   "price": 6.99
+ },
+ {
+   "category": "Salads",
+   "title": "Spinach & Strawberry Salad",
+   "content": "Baby spinach, strawberries, almonds, and goat cheese with a vinaigrette.",
+   "price": 8.5
+ },
+ {
+   "category": "Main Courses",
+   "title": "Grilled Salmon",
+   "content": "Salmon fillet grilled to perfection, served with vegetables and rice.",
+   "price": 15.99
+ },
+ {
+   "category": "Main Courses",
+   "title": "Chicken Parmesan",
+   "content": "Breaded chicken breast topped with marinara and melted cheese, served with pasta.",
+   "price": 14.5
+ },
+ {
+   "category": "Main Courses",
+   "title": "Beef Stroganoff",
+   "content": "Tender beef in a creamy mushroom sauce, served over egg noodles.",
+   "price": 16.75
+ },
+ {
+   "category": "Main Courses",
+   "title": "Vegetable Stir Fry",
+   "content": "A mix of fresh vegetables stir-fried in a savory sauce, served with rice.",
+   "price": 13
+ },
+ {
+   "category": "Desserts",
+   "title": "Chocolate Lava Cake",
+   "content": "Warm, rich chocolate cake with a gooey center, served with vanilla ice cream.",
+   "price": 7
+ },
+ {
+   "category": "Desserts",
+   "title": "Tiramisu",
+   "content": "Classic Italian dessert with layers of coffee-soaked ladyfingers and mascarpone cheese.",
+   "price": 6.5
+ },
+ {
+   "category": "Desserts",
+   "title": "New York Cheesecake",
+   "content": "Creamy cheesecake with a graham cracker crust, served with berry compote.",
+   "price": 7.25
+ },
+ {
+   "category": "Desserts",
+   "title": "Apple Pie à la Mode",
+   "content": "Traditional apple pie served warm with a scoop of vanilla ice cream.",
+   "price": 6.75
+ },
+ {
+   "category": "Beverages",
+   "title": "Freshly Brewed Coffee",
+   "content": "Rich, aromatic coffee made from freshly ground beans.",
+   "price": 2.99
+ },
+ {
+   "category": "Beverages",
+   "title": "Iced Tea",
+   "content": "Refreshing and cool, served sweetened or unsweetened.",
+   "price": 2.5
+ },
+ {
+   "category": "Beverages",
+   "title": "Fruit Smoothies",
+   "content": "A blend of seasonal fruits and yogurt. Choice of flavors.",
+   "price": 4.5
+ },
+ {
+   "category": "Beverages",
+   "title": "Italian Soda",
+   "content": "Carbonated water with your choice of flavored syrup, topped with cream.",
+   "price": 3.75
+ },
+ {
+   "category": "Seafood",
+   "title": "Shrimp Scampi",
+   "content": "Sautéed shrimp in a garlic lemon butter sauce, served over linguine.",
+   "price": 18.99
+ },
+ {
+   "category": "Seafood",
+   "title": "Grilled Tilapia",
+   "content": "Lightly seasoned tilapia fillet, grilled and served with a lemon butter sauce.",
+   "price": 16.5
+ },
+ {
+   "category": "Seafood",
+   "title": "Lobster Risotto",
+   "content": "Creamy risotto with chunks of lobster and a touch of Parmesan.",
+   "price": 22
+ },
+ {
+   "category": "Seafood",
+   "title": "Fish Tacos",
+   "content": "Grilled fish in soft tortillas with cabbage slaw and a creamy sauce.",
+   "price": 14.75
+ },
+ {
+   "category": "Pasta",
+   "title": "Spaghetti Carbonara",
+   "content": "Spaghetti tossed with crispy bacon, eggs, and Parmesan.",
+   "price": 13.99
+ },
+ {
+   "category": "Pasta",
+   "title": "Penne alla Vodka",
+   "content": "Penne pasta in a creamy tomato vodka sauce.",
+   "price": 12.5
+ },
+ {
+   "category": "Pasta",
+   "title": "Fettuccine Alfredo",
+   "content": "Fettuccine pasta in a rich and creamy Parmesan sauce.",
+   "price": 11.75
+ },
+ {
+   "category": "Pasta",
+   "title": "Lasagna Bolognese",
+   "content": "Layers of pasta, Bolognese sauce, bechamel, and cheese.",
+   "price": 14
+ },
+ {
+   "category": "Burgers & Sandwiches",
+   "title": "Classic Cheeseburger",
+   "content": "Grilled beef patty with cheese, lettuce, tomato, and onion on a brioche bun.",
+   "price": 10.99
+ },
+ {
+   "category": "Burgers & Sandwiches",
+   "title": "Grilled Chicken Sandwich",
+   "content": "Marinated chicken breast with lettuce, tomato, and mayo on a ciabatta roll.",
+   "price": 9.5
+ },
+ {
+   "category": "Burgers & Sandwiches",
+   "title": "Veggie Burger",
+   "content": "A flavorful patty made from vegetables and grains, served with your choice of toppings.",
+   "price": 9.75
+ },
+ {
+   "category": "Burgers & Sandwiches",
+   "title": "BLT Sandwich",
+   "content": "Crispy bacon, fresh lettuce, and tomato on toasted bread.",
+   "price": 8.99
+ },
+ {
+   "category": "Pizzas",
+   "title": "Margherita Pizza",
+   "content": "Classic with fresh mozzarella, tomatoes, and basil.",
+   "price": 11.99
+ },
+ {
+   "category": "Pizzas",
+   "title": "Pepperoni Pizza",
+   "content": "Loaded with pepperoni and cheese on a crispy crust.",
+   "price": 12.5
+ },
+ {
+   "category": "Pizzas",
+   "title": "Veggie Pizza",
+   "content": "Topped with a variety of fresh vegetables and mozzarella.",
+   "price": 11.75
+ },
+ {
+   "category": "Pizzas",
+   "title": "BBQ Chicken Pizza",
+   "content": "Chicken, red onion, and mozzarella on a BBQ sauce base.",
+   "price": 13
+ },
+ {
+   "category": "International Cuisine",
+   "title": "Chicken Tikka Masala",
+   "content": "Grilled chicken in a creamy tomato sauce, served with basmati rice.",
+   "price": 15
+ },
+ {
+   "category": "International Cuisine",
+   "title": "Beef Enchiladas",
+   "content": "Corn tortillas filled with seasoned beef, topped with enchilada sauce and cheese.",
+   "price": 14.5
+ },
+ {
+   "category": "International Cuisine",
+   "title": "Pad Thai",
+   "content": "Stir-fried rice noodles with shrimp, peanuts, egg, and bean sprouts.",
+   "price": 13.99
+ },
+ {
+   "category": "International Cuisine",
+   "title": "Sushi Platter",
+   "content": "Assortment of fresh sushi and sashimi.",
+   "price": 18.75
+ },
+ {
+   "category": "Vegan Options",
+   "title": "Vegan Burger",
+   "content": "Plant-based patty with lettuce, tomato, and vegan mayo on a whole wheat bun.",
+   "price": 11
+ },
+ {
+   "category": "Vegan Options",
+   "title": "Quinoa Salad",
+   "content": "Quinoa with mixed greens, vegetables, and a lemon-tahini dressing.",
+   "price": 9.75
+ },
+ {
+   "category": "Vegan Options",
+   "title": "Stuffed Bell Peppers",
+   "content": "Bell peppers filled with a mix of quinoa, black beans, corn, and spices.",
+   "price": 12.5
+ },
+ {
+   "category": "Vegan Options",
+   "title": "Vegan Pad Thai",
+   "content": "Rice noodles with tofu, vegetables, and a tangy tamarind sauce.",
+   "price": 12
+ },
+ {
+   "category": "Kids' Menu",
+   "title": "Macaroni and Cheese",
+   "content": "Creamy cheese sauce over elbow macaroni.",
+   "price": 6.5
+ },
+ {
+   "category": "Kids' Menu",
+   "title": "Chicken Tenders",
+   "content": "Breaded and fried chicken tenders, served with fries.",
+   "price": 7
+ },
+ {
+   "category": "Kids' Menu",
+   "title": "Mini Cheeseburgers",
+   "content": "Two small burgers perfect for little hands, served with fries.",
+   "price": 7.5
+ },
+ {
+   "category": "Kids' Menu",
+   "title": "Grilled Cheese Sandwich",
+   "content": "Classic grilled cheese on white bread, served with fries.",
+   "price": 6
+ },
+ {
+   "category": "Healthy Choices",
+   "title": "Grilled Chicken Salad",
+   "content": "Grilled chicken breast atop mixed greens with assorted vegetables.",
+   "price": 10.99
+ },
+ {
+   "category": "Healthy Choices",
+   "title": "Baked Salmon",
+   "content": "Oven-baked salmon fillet with a side of steamed vegetables.",
+   "price": 16.75
+ },
+ {
+   "category": "Healthy Choices",
+   "title": "Veggie Wrap",
+   "content": "Whole wheat wrap filled with hummus, fresh vegetables, and sprouts.",
+   "price": 8.99
+ },
+ {
+   "category": "Healthy Choices",
+   "title": "Fruit Bowl",
+   "content": "Seasonal fresh fruit served in a bowl.",
+   "price": 6.5
+ },
+ {
+   "category": "Signature Cocktails",
+   "title": "Mojito",
+   "content": "Classic cocktail with rum, mint, lime, sugar, and soda water.",
+   "price": 8
+ },
+ {
+   "category": "Signature Cocktails",
+   "title": "Cosmopolitan",
+   "content": "Vodka, triple sec, cranberry juice, and freshly squeezed lime.",
+   "price": 9
+ },
+ {
+   "category": "Signature Cocktails",
+   "title": "Old Fashioned",
+   "content": "Bourbon, bitters, sugar, and a twist of orange.",
+   "price": 10
+ },
+ {
+   "category": "Signature Cocktails",
+   "title": "Margarita",
+   "content": "Tequila, triple sec, and lime juice, served on the rocks with salt.",
+   "price": 9.5
+ }
+]
