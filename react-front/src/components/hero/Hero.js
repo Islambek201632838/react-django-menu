@@ -20,13 +20,12 @@ const Hero = () => {
   // Handler for submitting the chat input
   const handleChatSubmit = async () => {
     try {
-        const response = await axios.get(
+        const response = await axios.post(
             `${process.env.REACT_APP_API_URL}/api/chat_with_gpt/`,
             {
-                params: {
                     input: chatInput,
-                },
-            }
+                }
+            
         );
         const generatedResponse = response.data.response;
         console.log("Generated Response:", generatedResponse);

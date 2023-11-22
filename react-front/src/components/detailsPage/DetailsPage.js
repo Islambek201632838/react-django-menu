@@ -8,7 +8,6 @@ import {
   ListItemText,
   Typography,
 } from "@mui/material";
-import Category from "../categoryList/Category";
 import DoubleArrowIcon from "@mui/icons-material/DoubleArrow";
 import Suggestions from "../suggestions/Suggestions";
 import { useParams } from "react-router-dom";

@@ -17,8 +17,9 @@ from django.http import JsonResponse
 from requests.exceptions import RequestException
 import requests
 import openai
+import os
 
-openai.api_key = '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'
+openai.api_key = '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'
 
 
 class blogApiView(viewsets.GenericViewSet, mixins.ListModelMixin, mixins.RetrieveModelMixin, mixins.CreateModelMixin):
@@ -99,16 +100,15 @@ class PopularPostsApiView(viewsets.ViewSet):
         return Response(serializer.data)
     
 class ChatWithGPT(APIView):
-    @api_view(['POST'])
-    def chat_with_gpt(self, request):
+    def post(self, request):
         user_input = request.data.get('input', '')
-
+        openai_api_key = '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'  
         try:
             response = requests.post(
                 'https://api.openai.com/v1/chat/completions',
                 headers={
                     'Content-Type': 'application/json',
-                    'Authorization': f'Bearer {openai.api_key}',
+                    'Authorization': f'Bearer {openai_api_key}',
                 },
                 json={
                     'model': 'gpt-4-turbo',
@@ -120,7 +120,12 @@ class ChatWithGPT(APIView):
             response.raise_for_status()
 
             generated_response = response.json()['choices'][0]['message']['content']
-            return JsonResponse({'response': generated_response})
+            return Response({'response': generated_response})
 
-        except RequestException as e:
-            return JsonResponse({'error': str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+        except requests.exceptions.HTTPError as e:
+            # Here you can log e.response.status_code and e.response.text for more insights
+            return Response({'error': str(e)}, status=e.response.status_code)
+
+        except Exception as e:
+            # Generic exception handling
+            return Response({'error': str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
