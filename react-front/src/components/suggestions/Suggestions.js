@@ -75,8 +75,8 @@ const Suggestions = () => {
       ml={3}
       sx={{ maxWidth: "100%", overflow: "auto" }}
     >
-      {randomCategories.map((item) => (
-        <Link href={`http://localhost:3000/category/${item.id}`} sx={{ textDecoration: "none" }}>
+      {randomCategories.map((item, index) => (
+        <Link key={index} href={`http://localhost:3000/category/${item.id}`} sx={{ textDecoration: "none" }}>
           <CardBox key={item.id}>
             <StyledCard sx={{ backgroundImage: `url(${item.image})` }} />
             <StyledTypography>{item.name}</StyledTypography>

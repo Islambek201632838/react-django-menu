@@ -43,24 +43,28 @@ const Posts = () => {
     }
   };
 
-  const fetchBlogData = async () => {
-    fetchData(`${process.env.REACT_APP_API_URL}/api/blogs/`, setBlog, currentBlogPage);
-  };
-
-  const fetchPostData = async () => {
-    fetchPopData(`${process.env.REACT_APP_API_URL}/api/PopularPostsApiView/`, setPost);
-  };
-
-  const fetchBlogLength = async () => {
-    fetchLength(`${process.env.REACT_APP_API_URL}/api/blogPages/`, setBlogLength);
-  };
-
+  
 
   useEffect(() => {
+    const fetchBlogData = async () => {
+      fetchData(`${process.env.REACT_APP_API_URL}/api/blogs/`, setBlog, currentBlogPage);
+    };
+    
     fetchBlogData();
+  }, [currentBlogPage]);
+
+  useEffect(() => {
+    const fetchPostData = async () => {
+      fetchPopData(`${process.env.REACT_APP_API_URL}/api/PopularPostsApiView/`, setPost);
+    };
+  
+    const fetchBlogLength = async () => {
+      fetchLength(`${process.env.REACT_APP_API_URL}/api/blogPages/`, setBlogLength);
+    };
+  
     fetchBlogLength();
     fetchPostData();
-  }, [currentBlogPage]);
+  }, []);
 
 
   const handleBlogPageChange = (event, value) => {
@@ -76,14 +80,14 @@ const Posts = () => {
         Latest Recipes
       </Typography>
       <Grid container columnSpacing={{ xs: 0, sm: 1, md: 1 }} direction={"column"}>
-        {blog.map((post) => (
-          <Grid item xs key={post.id}>
+        {blog.map((item) => (
+          <Grid item xs key={item.id}>
             <PostsCard
-              title={post.title}
-              excerpt={post.excerpt}
-              image={post.image}
-              price={post.price}
-              blogHref={`/details/${post.slug}`}
+              title={item.title}
+              excerpt={item.excerpt}
+              image={item.image}
+              price={item.price}
+              blogHref={`/details/${item.slug}`}
               myDirection={"flex"}
             />
           </Grid>

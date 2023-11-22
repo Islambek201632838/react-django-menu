@@ -51,8 +51,8 @@ const Navbar = () => {
             </Link>
           </Box>
           <MenuBox flex={1} sx={{ display: { xs: "none", md: "flex" } }}>
-            {MenuItems.map((item) => (
-               <Link to={`http://localhost:3000${item.Link}`} sx={{ textDecoration: "none" }}>
+            {MenuItems.map((item, index) => (
+               <Link key={index} to={`http://localhost:3000${item.Link}`} sx={{ textDecoration: "none" }}>
                   <Typography variant="body2">{item.Name}</Typography>
                </Link>
               
@@ -77,8 +77,8 @@ const Navbar = () => {
          
           <List>
             <ListItem>
-              {MenuItems.map((item) => (
-                <ListItemButton>{item.Name}</ListItemButton>
+              {MenuItems.map((item, index) => (
+                <ListItemButton key={index}>{item.Name}</ListItemButton>
               ))}
             </ListItem>
        

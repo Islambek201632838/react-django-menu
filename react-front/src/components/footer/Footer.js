@@ -18,8 +18,8 @@ const Footer = () => {
       <Container>
         <Stack direction={"row"}>
           <MenuBox flex={2} sx={{ display: { xs: "none", md: "flex" } }}>
-            {MenuItems.map((item) => (
-              <Typography variant="body2" color={"white"}>
+            {MenuItems.map((item, index) => (
+              <Typography key={index} variant="body2" color={"white"}>
                 {item.Name}
               </Typography>
             ))}

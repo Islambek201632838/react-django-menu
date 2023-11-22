@@ -11,9 +11,17 @@ from django.core.paginator import Paginator
 from rest_framework import status
 from math import ceil
 from rest_framework.views import APIView
+from rest_framework.decorators import api_view
+
+from django.http import JsonResponse
+from requests.exceptions import RequestException
+import requests
+import openai
+
+openai.api_key = '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'
 
 
-class BlogApiView(viewsets.GenericViewSet, mixins.ListModelMixin, mixins.RetrieveModelMixin, mixins.CreateModelMixin):
+class blogApiView(viewsets.GenericViewSet, mixins.ListModelMixin, mixins.RetrieveModelMixin, mixins.CreateModelMixin):
     serializer_class = blogSerializer
     lookup_field = 'slug'
 
@@ -22,6 +30,7 @@ class BlogApiView(viewsets.GenericViewSet, mixins.ListModelMixin, mixins.Retriev
         limit = int(self.request.query_params.get('limit', 5))
         queryset = blog.objects.all()[offset:offset + limit]
         return queryset
+
 
     @action(detail=False, methods=['post'])
     def create_blog(self, request):
@@ -51,6 +60,16 @@ class BlogApiView(viewsets.GenericViewSet, mixins.ListModelMixin, mixins.Retriev
             response_data.append(serializer.data)
 
         return Response(response_data, status=status.HTTP_201_CREATED)
+
+class blogDetails(viewsets.ViewSet):
+    def retrieve(self, request, pk=None):
+        try:
+            instance = blog.objects.get(slug=pk)
+            serializer = blogSerializer(instance)
+            return Response(serializer.data)
+        except blog.DoesNotExist:
+            return Response({"detail": "Not found."}, status=status.HTTP_404_NOT_FOUND)
+
     
 class BlogPageInfo(APIView):
     def get(self, request):
@@ -62,7 +81,7 @@ class BlogPageInfo(APIView):
 
         return Response({'max_pages': max_pages}, status=status.HTTP_200_OK)
 
-class CategoryApiView(viewsets.GenericViewSet, mixins.ListModelMixin, mixins.RetrieveModelMixin):
+class categoryApiView(viewsets.GenericViewSet, mixins.ListModelMixin, mixins.RetrieveModelMixin):
     queryset = category.objects.all()
     serializer_class = categorySerializer
     lookup_field = 'id'
@@ -78,3 +97,30 @@ class PopularPostsApiView(viewsets.ViewSet):
         queryset = blog.objects.filter(postlabel__iexact='POPULAR').order_by('-id')[0:4]
         serializer = blogSerializer(queryset, many=True)
         return Response(serializer.data)
+    
+class ChatWithGPT(APIView):
+    @api_view(['POST'])
+    def chat_with_gpt(self, request):
+        user_input = request.data.get('input', '')
+
+        try:
+            response = requests.post(
+                'https://api.openai.com/v1/chat/completions',
+                headers={
+                    'Content-Type': 'application/json',
+                    'Authorization': f'Bearer {openai.api_key}',
+                },
+                json={
+                    'model': 'gpt-4-turbo',
+                    'messages': [{'role': 'user', 'content': user_input}],
+                    'temperature': 0.7,
+                }
+            )
+
+            response.raise_for_status()
+
+            generated_response = response.json()['choices'][0]['message']['content']
+            return JsonResponse({'response': generated_response})
+
+        except RequestException as e:
+            return JsonResponse({'error': str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)

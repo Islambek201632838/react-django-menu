@@ -64,8 +64,8 @@ const Category = () => {
       ml={3}
       sx={{ maxWidth: "100%", overflow: "auto", margin: "50px 0" }}
     >
-      {cat.map((category) => (
-        <Link href={`category/${category.id}`} sx={{ textDecoration: "none" }}>
+      {cat.map((category, index) => (
+        <Link key={index} href={`category/${category.id}`} sx={{ textDecoration: "none" }}>
           <CardBox>
             <StyledCard sx={{ backgroundImage: `url(${category.image})` }} />
             <StyledTypography>{category.name}</StyledTypography>

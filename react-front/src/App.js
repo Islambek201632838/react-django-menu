@@ -14,7 +14,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Main />} />
           <Route path="/details/:slug" element={<DetailsPage />} />
-          <Route path="/category/:name" element={<CatBasedPosts />} />
+          <Route path="/category/:id" element={<CatBasedPosts />} />
         </Routes>
       </BrowserRouter>
       <Footer />

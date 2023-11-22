@@ -1,17 +1,17 @@
-import { Container, Grid, Pagination, Stack } from "@mui/material";
+import { Container, Grid, Stack } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import PostsCard from "../posts/PostsCard";
 import axios from "axios";
 import { useParams } from "react-router-dom";
 const CatBasedPosts = () => {
-  let { name } = useParams();
+  let { id } = useParams();
   const [blog, setBlog] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         const res = await axios.get(
-          `${process.env.REACT_APP_API_URL}/api/categoryBasedBlogs/${name}`
+          `${process.env.REACT_APP_API_URL}/api/categoryBasedBlogs/${id}`
         );
         setBlog(res.data);
       } catch (error) {
@@ -19,7 +19,7 @@ const CatBasedPosts = () => {
       }
     };
     fetchData();
-  }, [name]);
+  }, [id]);
 
   return (
     <Container>

@@ -28,7 +28,6 @@ const PostsCard = ({ myDirection, title, excerpt, blogHref, image, price }) => {
               component={"img"}
               height="300px"
               image={image}
-              alt="burger_image"
               sx={{
                 width: "400px",
                 cursor: "pointer",
