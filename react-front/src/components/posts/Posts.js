@@ -87,7 +87,7 @@ const Posts = () => {
               excerpt={item.excerpt}
               image={item.image}
               price={item.price}
-              blogHref={`/details/${item.slug}`}
+              blogHref={`/details/${item.id}`}
               myDirection={"flex"}
             />
           </Grid>

@@ -13,7 +13,7 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Main />} />
-          <Route path="/details/:slug" element={<DetailsPage />} />
+          <Route path="/details/:id" element={<DetailsPage />} />
           <Route path="/category/:id" element={<CatBasedPosts />} />
         </Routes>
       </BrowserRouter>

@@ -6,6 +6,7 @@ import { useParams } from "react-router-dom";
 const CatBasedPosts = () => {
   let { id } = useParams();
   const [blog, setBlog] = useState([]);
+ 
 
   useEffect(() => {
     const fetchData = async () => {

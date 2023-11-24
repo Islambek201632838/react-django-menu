@@ -17,13 +17,13 @@ import axios from "axios";
 const DetailsPage = () => {
   const [blogDetails, setblogDetails] = useState([]);
   const [postIngredients, setPostIngredients] = useState("");
-  let { slug } = useParams();
+  let { id } = useParams();
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         const res = await axios.get(
-          `${process.env.REACT_APP_API_URL}/api/details/${slug}`
+          `${process.env.REACT_APP_API_URL}/api/details/${id}`
         );
         setblogDetails(res.data);
         setPostIngredients(res.data.ingredients);
@@ -32,7 +32,7 @@ const DetailsPage = () => {
       }
     };
     fetchData();
-  }, [slug]);
+  }, [id]);
 
   return (
     <Container maxWidth="md">

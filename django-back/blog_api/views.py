@@ -11,20 +11,17 @@ from django.core.paginator import Paginator
 from rest_framework import status
 from math import ceil
 from rest_framework.views import APIView
-from rest_framework.decorators import api_view
-
-from django.http import JsonResponse
-from requests.exceptions import RequestException
 import requests
 import openai
-import os
+import json
+from django.db.models import Q
 
-openai.api_key = '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'
+openai.api_key = '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'
 
 
 class blogApiView(viewsets.GenericViewSet, mixins.ListModelMixin, mixins.RetrieveModelMixin, mixins.CreateModelMixin):
     serializer_class = blogSerializer
-    lookup_field = 'slug'
+    lookup_field = 'id'
 
     def get_queryset(self):
         offset = int(self.request.query_params.get('offset', 0))
@@ -65,13 +62,12 @@ class blogApiView(viewsets.GenericViewSet, mixins.ListModelMixin, mixins.Retriev
 class blogDetails(viewsets.ViewSet):
     def retrieve(self, request, pk=None):
         try:
-            instance = blog.objects.get(slug=pk)
+            instance = blog.objects.get(id=pk)
             serializer = blogSerializer(instance)
             return Response(serializer.data)
         except blog.DoesNotExist:
             return Response({"detail": "Not found."}, status=status.HTTP_404_NOT_FOUND)
-
-    
+   
 class BlogPageInfo(APIView):
     def get(self, request):
         limit = int(request.query_params.get('limit', 5))
@@ -99,33 +95,66 @@ class PopularPostsApiView(viewsets.ViewSet):
         serializer = blogSerializer(queryset, many=True)
         return Response(serializer.data)
     
+
+from django.http import JsonResponse
+from rest_framework.views import APIView
+from rest_framework.response import Response
+from rest_framework import status
+import requests
+import json
+
 class ChatWithGPT(APIView):
     def post(self, request):
         user_input = request.data.get('input', '')
-        openai_api_key = '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'  
+
+        # Serialize including 'id' field from the dataset
+        queryset = blog.objects.all()
+        serialized_data = [
+            {   
+                'id': str(item.id),
+                'title': item.title,
+                'ingredients': item.ingredients,
+                'content': item.content,
+                # 'price': float(item.price)
+            }
+            for item in queryset
+        ]
+        serialized_data_str = json.dumps(serialized_data, indent=2)
+
+        # Call the GPT model with combined input
         try:
+            combined_input = f"User Input: {user_input}\nDatabase: {serialized_data_str}"
             response = requests.post(
                 'https://api.openai.com/v1/chat/completions',
                 headers={
                     'Content-Type': 'application/json',
-                    'Authorization': f'Bearer {openai_api_key}',
+                    'Authorization': f'Bearer {openai.api_key}',
                 },
                 json={
-                    'model': 'gpt-4-turbo',
-                    'messages': [{'role': 'user', 'content': user_input}],
+                    'model': 'gpt-3.5-turbo',
+                    'messages': [
+                        {'role': 'system', 'content': "You are a smart waiter who recommends food or drink items from a database based on customer's preferences."},
+                        {'role': 'user', 'content': combined_input}
+                    ],
                     'temperature': 0.7,
                 }
             )
 
             response.raise_for_status()
+            interpretation = response.json()['choices'][0]['message']['content']
 
-            generated_response = response.json()['choices'][0]['message']['content']
-            return Response({'response': generated_response})
+            filtered_data = [item for item in serialized_data if 
+                             item['title'].lower() in interpretation.lower() or 
+                             item['content'].lower() in interpretation.lower() or 
+                             item['ingredients'].lower() in interpretation.lower()]
+
+            return Response({
+                'gpt_response': interpretation,
+                'recommendations': filtered_data  # Include 'id' in recommendations
+            })
 
         except requests.exceptions.HTTPError as e:
-            # Here you can log e.response.status_code and e.response.text for more insights
             return Response({'error': str(e)}, status=e.response.status_code)
 
         except Exception as e:
-            # Generic exception handling
             return Response({'error': str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
