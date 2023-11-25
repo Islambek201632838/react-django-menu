@@ -86,8 +86,9 @@ const PostSearch = () => {
                     title={search.title}
                     excerpt={search.excerpt}
                     image={search.image}
-                    blogHref={`/details/${search.slug}`}
+                    blogHref={`/details/${search.id}`}
                     myDirection={"flex"}
+                    price={search.price}
                   />
                 </Grid>
               ) : (
