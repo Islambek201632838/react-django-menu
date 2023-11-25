@@ -84,6 +84,16 @@ DATABASES = {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db.sqlite3',
     }
+
+    #  'default': {
+    #     'ENGINE': 'django.db.backends.postgresql',
+    #     'NAME': BASE_DIR / 'data.sql',
+    #     'NAME': 'your_db_name',
+    #     'USER': 'your_db_user',
+    #     'PASSWORD': 'your_db_password',
+    #     'HOST': 'your_db_host',  # e.g., 'localhost' or an IP address
+    #     'PORT': 'your_db_port',  # default PostgreSQL port is 5432
+    # }
 }
 
 REST_FRAMEWORK = {
