@@ -85,6 +85,7 @@ const Hero = () => {
       setRecognition(recognitionInstance);
     } else {
       console.error("This browser doesn't support speech recognition.");
+      setError(`This browser doesn't support speech recognition.`);
     }
   }, []);
 
