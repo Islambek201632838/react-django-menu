@@ -36,7 +36,7 @@ const CatBasedPosts = () => {
               excerpt={post.excerpt}
               price = {post.price}
               image={`${process.env.REACT_APP_API_URL}${post.image}`}
-              blogHref={`/details/${post.slug}`}
+              blogHref={`/details/${post.id}`}
               myDirection={"flex"}
             />
           </Grid>
